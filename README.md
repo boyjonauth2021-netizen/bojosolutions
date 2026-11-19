@@ -15,16 +15,11 @@ The dev server listens on port 4327.
 
 ## GitHub Pages
 
-This repository is set up for GitHub Pages with a custom domain.
+The site is published with GitHub Actions to:
 
-1. Push the repository to GitHub.
-2. In the repository settings, open Pages and set the source to **GitHub Actions**.
-3. The workflow in `.github/workflows/pages.yml` builds the site and publishes it.
-4. `CNAME` is `bojosolutions.com`. Point the domain at GitHub Pages when you are ready:
-   - an `A` record for `@` to `185.199.108.153`, `185.199.109.153`, `185.199.110.153` and `185.199.111.153`
-   - a `CNAME` record for `www` to `<user>.github.io`
+https://boyjonauth2021-netizen.github.io/bojosolutions/
 
-Until the domain is attached, the site is available at the GitHub Pages address for the repository.
+Pages is set to build from the workflow in `.github/workflows/pages.yml`. No custom domain is attached. When a domain is registered later, add it in the repository Pages settings.
 
 ## Catalogue
 

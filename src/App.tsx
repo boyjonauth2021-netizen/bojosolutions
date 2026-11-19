@@ -161,9 +161,9 @@ export default function App() {
             BojoFlix stands in for the earlier CineList and FlixBojo versions.
           </p>
           <p>
-            The mark is the studio logo from the Games MRU work. Point
-            bojosolutions.com at this site when the domain is ready. Until
-            then it lives on GitHub Pages.
+            The mark is the studio logo from the Games MRU work. The shelf
+            is published on GitHub Pages. A custom domain can be attached
+            later, once it is registered.
           </p>
           <p>
             <a href="mailto:boyjonauth2022@gmail.com">boyjonauth2022@gmail.com</a>
