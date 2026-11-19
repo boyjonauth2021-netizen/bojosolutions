@@ -60,8 +60,6 @@ export default function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-copy">
-            <p className="kicker">Dark tech studio · Mauritius</p>
-            <h1>Software with a finish line.</h1>
             <p className="lede">
               Bojo Solutions designs and ships web platforms, education
               technology and browser games from Mauritius.
