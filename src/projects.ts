@@ -174,3 +174,15 @@ export const kindLabel: Record<Kind, string> = {
   webapp: 'Web app',
   website: 'Website',
 }
+
+export const previewFocus: Record<string, 'top' | 'center' | 'bottom'> = {
+  ramayana: 'center',
+  paille: 'center',
+  zombi: 'bottom',
+  lotomoris: 'center',
+  marks: 'center',
+  bojoflix: 'center',
+  rental: 'center',
+  tuition: 'center',
+  agri: 'center',
+}

@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import logo from './assets/logo.png'
-import { kindLabel, projects, type Kind } from './projects'
+import { kindLabel, previewFocus, projects, type Kind, type Project } from './projects'
 
 const filters: Array<{ id: 'all' | Kind; label: string }> = [
   { id: 'all', label: 'All' },
@@ -117,34 +117,31 @@ export default function App() {
             </p>
           ) : (
             <ul className="grid">
-              {visible.map((project, index) => (
+              {visible.map((project) => (
                 <li key={project.id} className={`card kind-${project.kind}`}>
-                  <div className="card-top">
-                    <span className="pill">{kindLabel[project.kind]}</span>
-                    <time dateTime={project.sort}>{project.when}</time>
-                  </div>
-                  <h2>
-                    <span className="index">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    {project.name}
-                  </h2>
-                  <p>{project.summary}</p>
-                  {project.note ? <p className="note">{project.note}</p> : null}
-                  <div className="links">
-                    {project.live ? (
-                      <a href={project.live} target="_blank" rel="noreferrer">
-                        Open
+                  <Preview project={project} />
+                  <div className="card-body">
+                    <div className="card-top">
+                      <time dateTime={project.sort}>{project.when}</time>
+                    </div>
+                    <h2>{project.name}</h2>
+                    <p>{project.summary}</p>
+                    {project.note ? <p className="note">{project.note}</p> : null}
+                    <div className="links">
+                      {project.live ? (
+                        <a href={project.live} target="_blank" rel="noreferrer">
+                          Open
+                        </a>
+                      ) : null}
+                      <a
+                        className="quiet"
+                        href={project.source}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Source
                       </a>
-                    ) : null}
-                    <a
-                      className="quiet"
-                      href={project.source}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Source
-                    </a>
+                    </div>
                   </div>
                 </li>
               ))}
@@ -172,9 +169,51 @@ export default function App() {
       </main>
 
       <footer>
-        <img src={logo} alt="" width="28" height="28" />
-        <span>Bojo Solutions · Mauritius</span>
+        <div className="foot">
+          <img src={logo} alt="" width="36" height="36" />
+          <div>
+            <strong>Bojo Solutions</strong>
+            <span>Mauritius · Boyjonauth Kevin</span>
+          </div>
+        </div>
+        <a href="mailto:boyjonauth2022@gmail.com">boyjonauth2022@gmail.com</a>
       </footer>
     </>
+  )
+}
+
+function Preview({ project }: { project: Project }) {
+  const [failed, setFailed] = useState(false)
+  const focus = previewFocus[project.id] ?? 'top'
+  const src = `${import.meta.env.BASE_URL}previews/${project.id}.webp`
+
+  const frame = failed ? (
+    <div className={`shot fallback kind-${project.kind}`}>
+      <span>{project.name}</span>
+    </div>
+  ) : (
+    <img
+      className={`shot focus-${focus}`}
+      src={src}
+      alt=""
+      width={1280}
+      height={800}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  )
+
+  return (
+    <div className="frame">
+      {project.live ? (
+        <a href={project.live} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}>
+          {frame}
+        </a>
+      ) : (
+        frame
+      )}
+      <span className="badge">{kindLabel[project.kind]}</span>
+    </div>
   )
 }
