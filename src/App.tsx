@@ -272,7 +272,6 @@ function Preview({ project }: { project: Project }) {
       alt=""
       width={1280}
       height={800}
-      loading="lazy"
       decoding="async"
       onError={() => setFailed(true)}
     />
