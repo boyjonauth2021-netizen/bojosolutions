@@ -9,14 +9,11 @@ const filters: Array<{ id: 'all' | Kind; label: string }> = [
   { id: 'website', label: 'Websites' },
 ]
 
-const schoolSystems = [
-  'School website',
-  'Marks entry',
-  'Timetable pipeline',
-  'Mock exam lists',
-  'Invigilation scheme',
-  'Teacher replacement',
-  'Student profiles',
+const capabilities = [
+  'Web platforms',
+  'EdTech',
+  'Browser and mobile games',
+  'School management systems',
 ]
 
 export default function App() {
@@ -66,9 +63,8 @@ export default function App() {
             <p className="kicker">Dark tech studio · Mauritius</p>
             <h1>Software with a finish line.</h1>
             <p className="lede">
-              Bojo Solutions builds games, school systems, and public tools
-              that are already in use. Mauritian-made, from a computer science
-              teacher who now ships full time.
+              Bojo Solutions designs and ships web platforms, education
+              technology and browser games from Mauritius.
             </p>
             <div className="cta">
               <a className="primary" href="#work">
@@ -176,43 +172,52 @@ export default function App() {
         </section>
 
         <section id="about" className="about">
-          <div>
+          <div className="about-lead">
             <p className="kicker">Founder</p>
             <h2>Kevin Boyjonauth</h2>
-            <p className="lede">
-              Founder of Bojo Solutions, based in the north of Mauritius. He
-              studied at Bangalore University from 2000 to 2003 and always
-              wanted to be a programmer. For more than twenty years he taught
-              Cambridge IGCSE and O Level Computer Science (2210) and A Level
-              Computer Science (9618). He is the Computer Science teacher and
-              Computer Lab manager at Shri B. Ramlallah SSS, Mapou. Since 2026
-              he has been a full-time developer, building with AI-assisted
-              tools.
+            <p className="role">Founder & Lead Engineer, Bojo Solutions</p>
+            <p>
+              Bojo Solutions designs and ships web platforms, education
+              technology and browser games from Mauritius.
             </p>
+            <p>
+              Twenty years in Cambridge Computer Science — IGCSE and O Level
+              2210, A Level 9618 — shapes the education products we ship.
+              Leading Computer Science and the Computer Lab at a state
+              secondary school is the domain behind that work.
+            </p>
+            <h3>What we build</h3>
+            <ul className="capabilities">
+              {capabilities.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
-          <div className="facts">
-            <article>
-              <h3>At the school</h3>
-              <p>
-                He built the school’s own systems, the ones the staff actually
-                run the day on.
-              </p>
-              <ul>
-                {schoolSystems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-            <article>
-              <h3>Flagship</h3>
-              <p>
+          <ul className="credibility">
+            <li>
+              <strong>20+</strong>
+              <span>Years in Computer Science</span>
+            </li>
+            <li>
+              <strong>{counts.all}</strong>
+              <span>Shipped products</span>
+            </li>
+            <li>
+              <strong>
                 <a href="https://bojo2025.github.io/ALevelSolved/">
                   ALevelSolved.com
-                </a>{' '}
-                holds solved past papers for Cambridge, Edexcel, and the IB.
-              </p>
-            </article>
-          </div>
+                </a>
+              </strong>
+              <span>Flagship exam-solutions platform</span>
+            </li>
+            <li>
+              <strong>In daily use</strong>
+              <span>
+                School systems for marks, timetabling, invigilation and
+                replacements
+              </span>
+            </li>
+          </ul>
         </section>
 
         <section id="contact" className="contact">
