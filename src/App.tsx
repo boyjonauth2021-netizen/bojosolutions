@@ -9,6 +9,16 @@ const filters: Array<{ id: 'all' | Kind; label: string }> = [
   { id: 'website', label: 'Websites' },
 ]
 
+const schoolSystems = [
+  'School website',
+  'Marks entry',
+  'Timetable pipeline',
+  'Mock exam lists',
+  'Invigilation scheme',
+  'Teacher replacement',
+  'Student profiles',
+]
+
 export default function App() {
   const [kind, setKind] = useState<'all' | Kind>('all')
   const [query, setQuery] = useState('')
@@ -46,22 +56,31 @@ export default function App() {
         <nav>
           <a href="#work">Work</a>
           <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <main id="top">
         <section className="hero">
-          <div>
-            <p className="kicker">Mauritius · Boyjonauth Kevin</p>
-            <h1>Finished games, apps and sites from the last few months.</h1>
+          <div className="hero-copy">
+            <p className="kicker">Dark tech studio · Mauritius</p>
+            <h1>Software with a finish line.</h1>
             <p className="lede">
-              Bojo Solutions is the public shelf for work that is already
-              playable or already in use: school tools, island software, and
-              games that run in the browser.
+              Bojo Solutions builds games, school systems, and public tools
+              that are already in use. Mauritian-made, from a computer science
+              teacher who now ships full time.
             </p>
+            <div className="cta">
+              <a className="primary" href="#work">
+                See the work
+              </a>
+              <a className="ghost" href="#contact">
+                Contact Kevin
+              </a>
+            </div>
           </div>
-          <div className="mark" aria-hidden="true">
-            <img src={logo} alt="" width="96" height="96" />
+          <div className="mark">
+            <img src={logo} alt="Bojo Solutions mark" width="120" height="120" />
           </div>
         </section>
 
@@ -85,6 +104,10 @@ export default function App() {
         </dl>
 
         <section id="work" className="work">
+          <div className="section-head">
+            <p className="kicker">Selected work</p>
+            <h2>On the shelf</h2>
+          </div>
           <div className="toolbar">
             <div className="filters" role="tablist" aria-label="Kind of work">
               {filters.map((filter) => (
@@ -124,9 +147,10 @@ export default function App() {
                   <Preview project={project} />
                   <div className="card-body">
                     <div className="card-top">
+                      <span className="kind">{kindLabel[project.kind]}</span>
                       <time dateTime={project.sort}>{project.when}</time>
                     </div>
-                    <h2>{project.name}</h2>
+                    <h3>{project.name}</h3>
                     <p>{project.summary}</p>
                     {project.note ? <p className="note">{project.note}</p> : null}
                     <div className="links">
@@ -152,30 +176,78 @@ export default function App() {
         </section>
 
         <section id="about" className="about">
-          <h2>How this shelf was built</h2>
-          <p>
-            Each card is a project that already has a public site, or a
-            finished repository that can be run from source. Drafts, empty
-            repositories and earlier cuts of the same idea stay off the shelf.
-            BojoFlix stands in for the earlier CineList and FlixBojo versions.
-          </p>
-          <p>
-            The mark is the studio logo from the Games MRU work. The shelf
-            is published on GitHub Pages. A custom domain can be attached
-            later, once it is registered.
-          </p>
-          <p>
-            <a href="mailto:boyjonauth2022@gmail.com">boyjonauth2022@gmail.com</a>
-          </p>
+          <div>
+            <p className="kicker">Founder</p>
+            <h2>Kevin Boyjonauth</h2>
+            <p className="lede">
+              Founder of Bojo Solutions, based in the north of Mauritius. He
+              studied at Bangalore University from 2000 to 2003 and always
+              wanted to be a programmer. For more than twenty years he taught
+              Cambridge IGCSE and O Level Computer Science (2210) and A Level
+              Computer Science (9618). He is the Computer Science teacher and
+              Computer Lab manager at Shri B. Ramlallah SSS, Mapou. Since 2026
+              he has been a full-time developer, building with AI-assisted
+              tools.
+            </p>
+          </div>
+          <div className="facts">
+            <article>
+              <h3>At the school</h3>
+              <p>
+                He built the school’s own systems, the ones the staff actually
+                run the day on.
+              </p>
+              <ul>
+                {schoolSystems.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+            <article>
+              <h3>Flagship</h3>
+              <p>
+                <a href="https://bojo2025.github.io/ALevelSolved/">
+                  ALevelSolved.com
+                </a>{' '}
+                holds solved past papers for Cambridge, Edexcel, and the IB.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact" className="contact">
+          <div>
+            <p className="kicker">Contact</p>
+            <h2>Start with an email.</h2>
+            <p>
+              New work, a school system, or a question about something already
+              on the shelf.
+            </p>
+          </div>
+          <div className="contact-links">
+            <a className="primary" href="mailto:boyjonauth2022@gmail.com">
+              boyjonauth2022@gmail.com
+            </a>
+            <a href="https://github.com/Bojo2025" target="_blank" rel="noreferrer">
+              GitHub · Bojo2025
+            </a>
+            <a
+              href="https://github.com/boyjonauth2021-netizen"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub · boyjonauth2021-netizen
+            </a>
+          </div>
         </section>
       </main>
 
       <footer>
         <div className="foot">
-          <img src={logo} alt="" width="36" height="36" />
+          <img src={logo} alt="" width="32" height="32" />
           <div>
             <strong>Bojo Solutions</strong>
-            <span>Mauritius · Boyjonauth Kevin</span>
+            <span>North of Mauritius</span>
           </div>
         </div>
         <a href="mailto:boyjonauth2022@gmail.com">boyjonauth2022@gmail.com</a>
@@ -190,7 +262,7 @@ function Preview({ project }: { project: Project }) {
   const src = `${import.meta.env.BASE_URL}previews/${project.id}.webp`
 
   const frame = failed ? (
-    <div className={`shot fallback kind-${project.kind}`}>
+    <div className="shot fallback">
       <span>{project.name}</span>
     </div>
   ) : (
@@ -209,7 +281,12 @@ function Preview({ project }: { project: Project }) {
   return (
     <div className="frame">
       {project.live ? (
-        <a href={project.live} target="_blank" rel="noreferrer" aria-label={`Open ${project.name}`}>
+        <a
+          href={project.live}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open ${project.name}`}
+        >
           {frame}
         </a>
       ) : (
