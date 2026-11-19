@@ -148,17 +148,6 @@ export const projects: Project[] = [
     source: 'https://github.com/boyjonauth2021-netizen/tuition-manager',
   },
   {
-    id: 'agri',
-    name: 'AgriResolve',
-    kind: 'webapp',
-    when: 'May 2026',
-    sort: '2026-05-20',
-    summary:
-      'Hydroponic crop advisor for growers in Mauritius. Nineteen vegetables and herbs, growing guides, growth charts, and a Green Assistant in English and Kreol.',
-    source: 'https://github.com/boyjonauth2021-netizen/agriresolve',
-    note: 'Finished app. The assistant needs an API key, so it is not on a public host yet.',
-  },
-  {
     id: 'brsss',
     name: 'BRSSS Mapou',
     kind: 'website',
@@ -186,5 +175,4 @@ export const previewFocus: Record<string, 'top' | 'center' | 'bottom'> = {
   bojoflix: 'center',
   rental: 'center',
   tuition: 'center',
-  agri: 'center',
 }

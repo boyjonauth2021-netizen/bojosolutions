@@ -2,7 +2,7 @@
 
 Public shelf for the games, web apps and websites finished by Boyjonauth Kevin.
 
-The site lists work that already has a live address, plus AgriResolve, which is finished in source and waiting on an API key before it can be hosted. Each card shows a captured preview of that live page. AgriResolve uses a studio still because it has no public host. Drafts and empty repositories are left off.
+The site lists work that already has a live address. Each card shows a captured preview of that page. Drafts and empty repositories are left off.
 
 ## Run it locally
 
