@@ -13,9 +13,11 @@ export default function App() {
   const [kind, setKind] = useState<'all' | Kind>('all')
   const [query, setQuery] = useState('')
 
+  const listed = useMemo(() => projects.filter((project) => !project.hidden), [])
+
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return projects
+    return listed
       .filter((project) => kind === 'all' || project.kind === kind)
       .filter((project) => {
         if (!q) return true
@@ -25,13 +27,13 @@ export default function App() {
           kindLabel[project.kind].toLowerCase().includes(q)
         )
       })
-  }, [kind, query])
+  }, [kind, listed, query])
 
   const counts = {
-    all: projects.length,
-    game: projects.filter((project) => project.kind === 'game').length,
-    webapp: projects.filter((project) => project.kind === 'webapp').length,
-    website: projects.filter((project) => project.kind === 'website').length,
+    all: listed.length,
+    game: listed.filter((project) => project.kind === 'game').length,
+    webapp: listed.filter((project) => project.kind === 'webapp').length,
+    website: listed.filter((project) => project.kind === 'website').length,
   }
 
   return (

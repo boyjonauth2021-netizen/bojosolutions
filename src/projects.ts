@@ -10,6 +10,7 @@ export type Project = {
   live?: string
   source: string
   note?: string
+  hidden?: boolean
 }
 
 export const projects: Project[] = [
@@ -23,6 +24,7 @@ export const projects: Project[] = [
       'A painted HTML5 action-story game. Eight levels, played in the browser, from the studio name on the title screen.',
     live: 'https://bojo2025.github.io/RamayanaGame/',
     source: 'https://github.com/Bojo2025/RamayanaGame',
+    hidden: true,
   },
   {
     id: 'boxoffice',
