@@ -8,7 +8,7 @@ export type Project = {
   sort: string
   summary: string
   live?: string
-  source: string
+  source?: string
   note?: string
   hidden?: boolean
 }
@@ -25,6 +25,39 @@ export const projects: Project[] = [
     live: 'https://bojo2025.github.io/RamayanaGame/',
     source: 'https://github.com/Bojo2025/RamayanaGame',
     hidden: true,
+  },
+  {
+    id: 'jerusha',
+    name: 'JerushaJump',
+    kind: 'game',
+    when: 'November 2026',
+    sort: '2026-11-18',
+    summary:
+      'A colourful side-scrolling platformer starring Jerusha. Collect stars along the coastal path — playable in the browser on itch.io.',
+    live: 'https://boyjonauth.itch.io/jerushajump',
+    note: 'Released on itch.io · Godot',
+  },
+  {
+    id: 'dodorun',
+    name: 'DodoRun',
+    kind: 'game',
+    when: 'November 2026',
+    sort: '2026-11-11',
+    summary:
+      'Endless runner with the Mauritius dodo. Swipe lanes, jump, slide and collect Mauritian Rupees on the island road.',
+    live: 'https://boyjonauth.itch.io/dodorun',
+    note: 'Released on itch.io',
+  },
+  {
+    id: 'traffic',
+    name: 'Traffic Mayhem Mauricien',
+    kind: 'game',
+    when: 'November 2026',
+    sort: '2026-11-01',
+    summary:
+      'Top-down runner on Mauritian roads. Dodge NTC vans, cane trucks and dogs, collect rouipis, and rule the traffic in Creole.',
+    live: 'https://boyjonauth.itch.io/traffic-mayhem-mauricien',
+    note: 'Released on itch.io · Godot',
   },
   {
     id: 'boxoffice',
@@ -168,6 +201,9 @@ export const kindLabel: Record<Kind, string> = {
 
 export const previewFocus: Record<string, 'top' | 'center' | 'bottom'> = {
   ramayana: 'center',
+  jerusha: 'center',
+  dodorun: 'center',
+  traffic: 'center',
   paille: 'center',
   zombi: 'bottom',
   lotomoris: 'center',

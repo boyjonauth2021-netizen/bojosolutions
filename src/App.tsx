@@ -153,14 +153,16 @@ export default function App() {
                           Open
                         </a>
                       ) : null}
-                      <a
-                        className="quiet"
-                        href={project.source}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        Source
-                      </a>
+                      {project.source ? (
+                        <a
+                          className="quiet"
+                          href={project.source}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          Source
+                        </a>
+                      ) : null}
                     </div>
                   </div>
                 </li>
