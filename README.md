@@ -1,8 +1,8 @@
 # Bojo Solutions
 
-Public shelf for the games, web apps and websites finished by Boyjonauth Kevin.
+Public shelf for the websites, apps and games finished by Boyjonauth Kevin.
 
-The site lists work that already has a live address. Each card shows a captured preview of that page. Drafts and empty repositories are left off.
+The home page opens onto three catalogues in that order — **Websites**, **Apps**, then **Games** — each with its own page of previews and links. Drafts and empty repositories are left off.
 
 ## Run it locally
 
